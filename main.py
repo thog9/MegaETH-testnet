@@ -59,9 +59,30 @@ async def run_bebopswap(language: str):
     from scripts.bebopswap import run_bebopswap as bebopswap_run
     await bebopswap_run(language)
 
-
+async def run_minttk(language: str):
+    from scripts.minttk import run_minttk as minttk_run
+    await minttk_run(language)
     
+async def run_xlmeme(language: str):
+    from scripts.xlmeme import run_xlmeme_script as xlmeme_run
+    await xlmeme_run(language)
 
+async def run_conftnft(language: str):
+    from scripts.conftnft import run_conftnft as conftnft_run
+    await conftnft_run(language)
+
+async def run_wl(language: str):
+    from scripts.wl import run_wl as wl_run
+    await wl_run(language)
+
+async def run_memegte(language: str):
+    from scripts.memegte import run_memegte as memegte_run
+    await memegte_run(language)
+    
+async def run_domain(language: str):
+    from scripts.domain import run_domain as domain_run
+    await domain_run(language)
+    
 async def run_sendtx(language: str):
     from scripts.sendtx import run_sendtx as sendtx_run
     await sendtx_run(language)
@@ -87,7 +108,13 @@ SCRIPT_MAP = {
     "faucetgte": run_faucetgte,
     "mintcap": run_mintcap,
     "bebopswap": run_bebopswap,
+    "minttk": run_minttk,
+    "xlmeme": run_xlmeme,
+    "conftnft": run_conftnft,
+    "wl": run_wl,
+    "domain": run_domain,
     "sendtx": run_sendtx,
+    "memegte": run_memegte,
     "deploytoken": run_deploytoken,
     "sendtoken": run_sendtoken,
     "deploynft": run_deploynft,
@@ -99,45 +126,58 @@ def get_available_scripts(language):
         'vi': [
             {"name": "1. GTE Testnet - Faucet ETH | MegaETH Testnet", "value": "faucetgte"},
             {"name": "2. CAP Testnet - Mint 1000 $cUSD | MegaETH Testnet", "value": "mintcap"},
-            {"name": "3. TEKO Finance - Mint 1 $tkETH | MegaETH Testnet", "value": "mint_tkETH"},
-            {"name": "4. TEKO Finance - Mint 2000 $tkUSDC | MegaETH Testnet", "value": "mint_tkUSDC"},
-            {"name": "5. TEKO Finance - Mint 0.02 $tkWBTC | MegaETH Testnet", "value": "mint_tkWBTC"},
-            {"name": "6. TEKO Finance - Mint 1000 $cUSD | MegaETH Testnet", "value": "mint_tkcUSD"},
+            {"name": "3. TEKO Finance - Mint Tokens | MegaETH Testnet", "value": "minttk"},
+            {"name": "4. Mint ConftApp Community Member of MegaETH │ MegaETH Testnet", "value": "conftnft"},
+            {"name": "5. Mint Domain │ MegaETH Testnet", "value": "domain"},
+            {"name": "6. GTE Testnet - Buy/Sell Meme $mRBIT │ MegaETH Testnet", "value": "memegte"},
+
             {"name": "7. Bebop Swap | MegaETH Testnet", "value": "bebopswap"},
-            {"name": "8. GTE Swap Testnet | MegaETH Testnet", "value": ""},
-            {"name": "9. GTE Earn Testnet | MegaETH Testnet", "value": ""},
-            {"name": "10. TEKO Earn Testnet | MegaETH Testnet", "value": ""},
-            {"name": "11. TEKO Borrow Testnet | MegaETH Testnet", "value": ""},
-
-
+            {"name": "8. REGISTER WAITLIST [ Euphoria | Valhalla | Noise ] | MegaETH Testnet", "value": "wl"},
+            {"name": "9. GTE Swap Testnet | MegaETH Testnet", "value": ""},
+            {"name": "10. GTE Earn Testnet | MegaETH Testnet", "value": ""},
+            {"name": "11. TEKO Earn Testnet | MegaETH Testnet", "value": ""},
+            {"name": "12. TEKO Borrow Testnet | MegaETH Testnet", "value": ""},
 
             
-            {"name": "12. Gửi TX ngẫu nhiên hoặc File (address.txt) | MegaETH Testnet", "value": "sendtx"},
-            {"name": "13. Deploy Token smart-contract | MegaETH Testnet", "value": "deploytoken"},
-            {"name": "14. Gửi Token ERC20 ngẫu nhiên hoặc File (addressERC20.txt) | MegaETH Testnet", "value": "sendtoken"},
-            {"name": "15. Deploy NFT smart-contract | MegaETH Testnet", "value": "deploynft"},
-            {"name": "16. Thoát", "value": "exit"},
+            {"name": "13. Gửi TX ngẫu nhiên hoặc File (address.txt) | MegaETH Testnet", "value": "sendtx"},
+            {"name": "14. Deploy Token smart-contract | MegaETH Testnet", "value": "deploytoken"},
+            {"name": "15. Gửi Token ERC20 ngẫu nhiên hoặc File (addressERC20.txt) | MegaETH Testnet", "value": "sendtoken"},
+            {"name": "16. Deploy NFT smart-contract | MegaETH Testnet", "value": "deploynft"},
+            {"name": "17. Thoát", "value": "exit"},
+
+           # {"name": "3. TEKO Finance - Mint 1 $tkETH | MegaETH Testnet", "value": "mint_tkETH"},
+           # {"name": "4. TEKO Finance - Mint 2000 $tkUSDC | MegaETH Testnet", "value": "mint_tkUSDC"},
+           # {"name": "5. TEKO Finance - Mint 0.02 $tkWBTC | MegaETH Testnet", "value": "mint_tkWBTC"},
+           # {"name": "6. TEKO Finance - Mint 1000 $cUSD | MegaETH Testnet", "value": "mint_tkcUSD"},
         ],
         'en': [
             {"name": "1. GTE Testnet - Faucet ETH | MegaETH Testnet", "value": "faucetgte"},
             {"name": "2. CAP Testnet - Mint 1000 $cUSD | MegaETH Testnet", "value": "mintcap"},
-            {"name": "3. TEKO Finance - Mint 1 $tkETH | MegaETH Testnet", "value": "mint_tkETH"},
-            {"name": "4. TEKO Finance - Mint 2000 $tkUSDC | MegaETH Testnet", "value": "mint_tkUSDC"},
-            {"name": "5. TEKO Finance - Mint 0.02 $tkWBTC | MegaETH Testnet", "value": "mint_tkWBTC"},
-            {"name": "6. TEKO Finance - Mint 1000 $cUSD | MegaETH Testnet", "value": "mint_tkcUSD"},
-            {"name": "7. Bebop Swap | MegaETH Testnet", "value": "bebopswap"},
-            {"name": "8. GTE Swap Testnet | MegaETH Testnet", "value": "swapgte"},
-            {"name": "9. GTE Earn Testnet | MegaETH Testnet", "value": ""},
-            {"name": "10. TEKO Earn Testnet | MegaETH Testnet", "value": ""},
-            {"name": "11. TEKO Borrow Testnet | MegaETH Testnet", "value": ""},
+            {"name": "3. TEKO Finance - Mint Tokens | MegaETH Testnet", "value": "minttk"},
+            {"name": "4. Mint ConftApp Community Member of MegaETH │ MegaETH Testnet", "value": "conftnft"},
+            {"name": "5. Mint Domain │ MegaETH Testnet", "value": "domain"},
+            {"name": "6. GTE Testnet - Buy/Sell Meme $mRBIT │ MegaETH Testnet", "value": "memegte"},
 
+            {"name": "7. Bebop Swap | MegaETH Testnet", "value": "bebopswap"},
+            {"name": "8. REGISTER WAITLIST [ Euphoria | Valhalla | Noise ] | MegaETH Testnet", "value": "wl"},
+
+            {"name": "9. GTE Swap Testnet | MegaETH Testnet", "value": "swapgte"},
+            {"name": "10. GTE Earn Testnet | MegaETH Testnet", "value": ""},
+            {"name": "11. TEKO Earn Testnet | MegaETH Testnet", "value": ""},
+            {"name": "12. TEKO Borrow Testnet | MegaETH Testnet", "value": ""},
 
             
-            {"name": "12. Send Random TX or File (address.txt) | MegaETH Testnet", "value": "sendtx"},
-            {"name": "13. Deploy Token smart-contract | MegaETH Testnet", "value": "deploytoken"},
-            {"name": "14. Send ERC20 Token Random or File (addressERC20.txt) | MegaETH Testnet", "value": "sendtoken"},
-            {"name": "15. Deploy NFT smart-contract | MegaETH Testnet", "value": "deploynft"},
-            {"name": "16. Exit", "value": "exit"},
+            {"name": "13. Send Random TX or File (address.txt) | MegaETH Testnet", "value": "sendtx"},
+            {"name": "14. Deploy Token smart-contract | MegaETH Testnet", "value": "deploytoken"},
+            {"name": "15. Send ERC20 Token Random or File (addressERC20.txt) | MegaETH Testnet", "value": "sendtoken"},
+            {"name": "16. Deploy NFT smart-contract | MegaETH Testnet", "value": "deploynft"},
+            {"name": "17. Exit", "value": "exit"},
+
+
+          #  {"name": "3. TEKO Finance - Mint 1 $tkETH | MegaETH Testnet", "value": "mint_tkETH"},
+          #  {"name": "4. TEKO Finance - Mint 2000 $tkUSDC | MegaETH Testnet", "value": "mint_tkUSDC"},
+          #  {"name": "5. TEKO Finance - Mint 0.02 $tkWBTC | MegaETH Testnet", "value": "mint_tkWBTC"},
+          #  {"name": "6. TEKO Finance - Mint 1000 $cUSD | MegaETH Testnet", "value": "mint_tkcUSD"},
         ]
     }
     return scripts[language]
