@@ -47,8 +47,6 @@ Trước khi chạy tập lệnh, hãy đảm bảo bạn đã cài đặt các 
 
 ## Cài đặt
 
-## Cài đặt
-
 1. **Clone this repository:**
 - Mở cmd hoặc Shell, sau đó chạy lệnh:
 ```sh
