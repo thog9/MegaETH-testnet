@@ -119,6 +119,18 @@ async def run_hopwl(language: str):
     from scripts.hopwl import run_hopwl as hopwl_run
     await hopwl_run(language)
 
+async def run_brontolock(language: str):
+    from scripts.brontolock import run_brontolock as brontolock_run
+    await brontolock_run(language)
+
+async def run_brontovote(language: str):
+    from scripts.brontovote import run_brontovote as brontovote_run
+    await brontovote_run(language)
+
+async def run_brontoliquidity(language: str):
+    from scripts.brontoliquidity import run_brontoliquidity as brontoliquidity_run
+    await brontoliquidity_run(language)
+
 async def cmd_exit(language: str):
     print_border(f"Exiting...", Fore.GREEN)
     sys.exit(0)
@@ -143,6 +155,9 @@ SCRIPT_MAP = {
     "sendtoken": run_sendtoken,
     "nftcollection": run_nftcollection,
     "hopwl": run_hopwl,
+    "brontolock": run_brontolock,
+    "brontovote": run_brontovote,
+    "brontoliquidity": run_brontoliquidity,
     "exit": cmd_exit
 }
 
