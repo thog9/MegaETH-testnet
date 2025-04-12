@@ -164,7 +164,7 @@ SCRIPT_MAP = {
 def get_available_scripts(language):
     scripts = {
         'vi': [
-            {"name": "1. GTE Testnet - Faucet ETH | MegaETH Testnet", "value": "faucetgte"},
+            {"name": "1. GTE Testnet - Faucet ETH [ FAUCET END ] | MegaETH Testnet", "value": "faucetgte"},
             {"name": "2. CAP Testnet - Mint 1000 $cUSD | MegaETH Testnet", "value": "mintcap"},
             {"name": "3. TEKO Finance - Mint Tokens | MegaETH Testnet", "value": "minttk"},
             {"name": "4. Mint ConftApp Community Member of MegaETH │ MegaETH Testnet", "value": "conftnft"},
@@ -195,7 +195,7 @@ def get_available_scripts(language):
            # {"name": "6. TEKO Finance - Mint 1000 $cUSD | MegaETH Testnet", "value": "mint_tkcUSD"},
         ],
         'en': [
-            {"name": "1. GTE Testnet - Faucet ETH | MegaETH Testnet", "value": "faucetgte"},
+            {"name": "1. GTE Testnet - Faucet ETH [ FAUCET END ]| MegaETH Testnet", "value": "faucetgte"},
             {"name": "2. CAP Testnet - Mint 1000 $cUSD | MegaETH Testnet", "value": "mintcap"},
             {"name": "3. TEKO Finance - Mint Tokens | MegaETH Testnet", "value": "minttk"},
             {"name": "4. Mint ConftApp Community Member of MegaETH │ MegaETH Testnet", "value": "conftnft"},
