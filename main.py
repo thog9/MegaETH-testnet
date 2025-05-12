@@ -135,9 +135,33 @@ async def run_rariblefun(language: str):
     from scripts.rariblefun import run_rariblefun as rariblefun_run
     await rariblefun_run(language)
 
+async def run_mintnerzo(language: str):
+    from scripts.mintnerzo import run_mintnerzo as mintnerzo_run
+    await mintnerzo_run(language)
+
+async def run_mintaura(language: str):
+    from scripts.mintaura import run_mintaura as mintaura_run
+    await mintaura_run(language)
+
+async def run_mintmorkie(language: str):
+    from scripts.mintmorkie import run_mintmorkie as mintmorkie_run
+    await mintmorkie_run(language)
+
 async def run_superboard(language: str):
     from scripts.superboard import run_superboard as superboard_run
     await superboard_run(language)
+
+async def run_easynode(language: str):
+    from scripts.easynode import run_easynode as easynode_run
+    await easynode_run(language)
+
+async def run_owlto(language: str):
+    from scripts.owlto import run_owlto as owlto_run
+    await owlto_run(language)
+
+async def run_rubic(language: str):
+    from scripts.rubic import run_rubic as rubic_run
+    await rubic_run(language)
 
 async def cmd_exit(language: str):
     print_border(f"Exiting...", Fore.GREEN)
@@ -167,65 +191,91 @@ SCRIPT_MAP = {
     "brontovote": run_brontovote,
     "brontoliquidity": run_brontoliquidity,
     "rariblefun": run_rariblefun,
+    "mintnerzo": run_mintnerzo,
+    "mintaura": run_mintaura,
+    "mintmorkie": run_mintmorkie,
     "superboard": run_superboard,
+    "easynode": run_easynode,
+    "owlto": run_owlto,
+    "rubic": run_rubic,
     "exit": cmd_exit
 }
 
 def get_available_scripts(language):
     scripts = {
         'vi': [
-            {"name": "1. GTE Testnet - Faucet ETH [ FAUCET END ] | MegaETH Testnet", "value": "faucetgte"},
-            {"name": "2. CAP Testnet - Mint 1000 $cUSD | MegaETH Testnet", "value": "mintcap"},
-            {"name": "3. TEKO Finance - Mint Tokens | MegaETH Testnet", "value": "minttk"},
-            {"name": "4. Mint ConftApp Community Member of MegaETH │ MegaETH Testnet", "value": "conftnft"},
-            {"name": "5. Mint Domain │ MegaETH Testnet", "value": "domain"},
-            {"name": "6. XL Meme Testnet - Buy/Sell Meme $mRBIT │ MegaETH Testnet", "value": "xlmeme"},
-            {"name": "7. Bebop Swap | MegaETH Testnet", "value": "bebopswap"},
-            {"name": "8. REGISTER WAITLIST [ Euphoria | Valhalla | Noise ] | MegaETH Testnet", "value": "wl"},
-            {"name": "9. GTE Swap Testnet | MegaETH Testnet", "value": "swapgte"},
-            {"name": "10. TEKO Staking Testnet | MegaETH Testnet", "value": "stakingteko"},
-            {"name": "11. Mint OmniHub NFT Studio | MegaETH Testnet", "value": "mintomnihub"},
-            {"name": "12. Bronto Swap Testnet | MegaETH Testnet", "value": "brontoswap"},
-            {"name": "13. Bronto Lock BRONTO -> veNFT [COMING SOON] | MegaETH Testnet", "value": "brontolock"},
-            {"name": "14. Bronto Vote Testnet [COMING SOON] | MegaETH Testnet", "value": "brontovote"},
-            {"name": "15. Bronto Liquidity Testnet [COMING SOON] | MegaETH Testnet", "value": "brontoliquidity"},
-            {"name": "16. WL HOPNetwork Testnet | MegaETH Testnet", "value": "hopwl"},
-            {"name": "17. Mint NFT Rarible FUN [ FUN Starts Here ] | MegaETH Testnet", "value": "rariblefun"},
-            {"name": "18. SuperBoard Quests | MegaETH Testnet", "value": "superboard"},
+            
+            {"name": "1. CAP Testnet - Mint 1000 $cUSD | MegaETH Testnet", "value": "mintcap"},
+            {"name": "2. TEKO Finance - Mint Tokens | MegaETH Testnet", "value": "minttk"},
+            {"name": "3. Mint ConftApp Community Member of MegaETH │ MegaETH Testnet", "value": "conftnft"},
+            {"name": "4. Mint Domain │ MegaETH Testnet", "value": "domain"},
+            {"name": "5. XL Meme Testnet - Buy/Sell Meme $mRBIT │ MegaETH Testnet", "value": "xlmeme"}, 
+            {"name": "6. Bebop Swap | MegaETH Testnet", "value": "bebopswap"},
+            {"name": "7. Rubic Exchange Swap | MegaETH Testnet", "value": "rubic"},
+            {"name": "8. GTE Swap Testnet | MegaETH Testnet", "value": "swapgte"},
+            {"name": "9. TEKO Staking Testnet | MegaETH Testnet", "value": "stakingteko"}, 
+            
+            #{"name": "10. Bronto Swap Testnet | MegaETH Testnet", "value": "brontoswap"},
+            #{"name": "11. Bronto Lock BRONTO -> veNFT [COMING SOON] | MegaETH Testnet", "value": "brontolock"},
+            #{"name": "12. Bronto Vote Testnet [COMING SOON] | MegaETH Testnet", "value": "brontovote"},
+            #{"name": "13. Bronto Liquidity Testnet [COMING SOON] | MegaETH Testnet", "value": "brontoliquidity"},
+            {"name": "10. WL HOPNetwork Testnet | MegaETH Testnet", "value": "hopwl"},
 
-            {"name": "19. Deploy Smart Contract Mintair | MegaETH Testnet", "value": "mintair"},
+            {"name": "11. Mint NFT RaribleFUN [ FUN Starts Here ] | MegaETH Testnet", "value": "rariblefun"},
+            {"name": "12. Mint NFT Nerzo [ MEGA ETH PASS ] | MegaETH Testnet", "value": "mintnerzo"},
+            {"name": "13. Mint NFT Aura [ BUNNY NFT ] | MegaETH Testnet", "value": "mintaura"},
+            {"name": "14. Mint NFT Morkie [ MORKIE NFT ] | MegaETH Testnet", "value": "mintmorkie"},
+            {"name": "15. Mint OmniHub NFT Studio | MegaETH Testnet", "value": "mintomnihub"},
+
+            {"name": "16. SuperBoard Quests | MegaETH Testnet", "value": "superboard"},
+
+            {"name": "17. Deploy Smart Contract Mintair | MegaETH Testnet", "value": "mintair"},
+            {"name": "18. Deploy Smart Contract EasyNode | MegaETH Testnet", "value": "easynode"},
+            {"name": "19. Deploy Smart Contract Owlto | MegaETH Testnet", "value": "owlto"},
             {"name": "20. Gửi TX ngẫu nhiên hoặc File (address.txt) | MegaETH Testnet", "value": "sendtx"},
             {"name": "21. Deploy Token smart-contract | MegaETH Testnet", "value": "deploytoken"},
             {"name": "22. Gửi Token ERC20 ngẫu nhiên hoặc File (addressERC20.txt) | MegaETH Testnet", "value": "sendtoken"},
             {"name": "23. Deploy NFT smart-contract | MegaETH Testnet", "value": "nftcollection"},
             {"name": "24. Thoát", "value": "exit"},
 
-           # {"name": "3. TEKO Finance - Mint 1 $tkETH | MegaETH Testnet", "value": "mint_tkETH"},
-           # {"name": "4. TEKO Finance - Mint 2000 $tkUSDC | MegaETH Testnet", "value": "mint_tkUSDC"},
-           # {"name": "5. TEKO Finance - Mint 0.02 $tkWBTC | MegaETH Testnet", "value": "mint_tkWBTC"},
-           # {"name": "6. TEKO Finance - Mint 1000 $cUSD | MegaETH Testnet", "value": "mint_tkcUSD"},
+           # {"name": "25. TEKO Finance - Mint 1 $tkETH | MegaETH Testnet", "value": "mint_tkETH"},
+           # {"name": "26. TEKO Finance - Mint 2000 $tkUSDC | MegaETH Testnet", "value": "mint_tkUSDC"},
+           # {"name": "27. TEKO Finance - Mint 0.02 $tkWBTC | MegaETH Testnet", "value": "mint_tkWBTC"},
+           # {"name": "28. TEKO Finance - Mint 1000 $cUSD | MegaETH Testnet", "value": "mint_tkcUSD"},
+           # {"name": "29. GTE Testnet - Faucet ETH [ FAUCET END ] | MegaETH Testnet", "value": "faucetgte"},
+           # {"name": "30. REGISTER WAITLIST [ Euphoria | Valhalla | Noise ] | MegaETH Testnet", "value": "wl"},
+
+
         ],
         'en': [
-            {"name": "1. GTE Testnet - Faucet ETH [ FAUCET END ]| MegaETH Testnet", "value": "faucetgte"},
-            {"name": "2. CAP Testnet - Mint 1000 $cUSD | MegaETH Testnet", "value": "mintcap"},
-            {"name": "3. TEKO Finance - Mint Tokens | MegaETH Testnet", "value": "minttk"},
-            {"name": "4. Mint ConftApp Community Member of MegaETH │ MegaETH Testnet", "value": "conftnft"},
-            {"name": "5. Mint Domain │ MegaETH Testnet", "value": "domain"},
-            {"name": "6. XL Meme Testnet - Buy/Sell Meme $mRBIT │ MegaETH Testnet", "value": "xlmeme"},
-            {"name": "7. Bebop Swap | MegaETH Testnet", "value": "bebopswap"},
-            {"name": "8. REGISTER WAITLIST [ Euphoria | Valhalla | Noise ] | MegaETH Testnet", "value": "wl"},
-            {"name": "9. GTE Swap Testnet | MegaETH Testnet", "value": "swapgte"},
-            {"name": "10. TEKO Staking Testnet | MegaETH Testnet", "value": "stakingteko"},
-            {"name": "11. Mint OmniHub NFT Studio | MegaETH Testnet", "value": "mintomnihub"},
-            {"name": "12. Bronto Swap Testnet | MegaETH Testnet", "value": "brontoswap"},
-            {"name": "13. Bronto Lock BRONTO -> veNFT [COMING SOON] | MegaETH Testnet", "value": "brontolock"},
-            {"name": "14. Bronto Vote Testnet [COMING SOON] | MegaETH Testnet", "value": "brontovote"},
-            {"name": "15. Bronto Liquidity Testnet [COMING SOON] | MegaETH Testnet", "value": "brontoliquidity"},
-            {"name": "16. WL HOPNetwork Testnet | MegaETH Testnet", "value": "hopwl"},
-            {"name": "17. Mint NFT Rarible FUN [ FUN Starts Here ] | MegaETH Testnet", "value": "rariblefun"},
-            {"name": "18. SuperBoard Quests | MegaETH Testnet", "value": "superboard"},
             
-            {"name": "19. Deploy Smart Contract Mintair | MegaETH Testnet", "value": "mintair"},    
+            {"name": "1. CAP Testnet - Mint 1000 $cUSD | MegaETH Testnet", "value": "mintcap"},
+            {"name": "2. TEKO Finance - Mint Tokens | MegaETH Testnet", "value": "minttk"},
+            {"name": "3. Mint ConftApp Community Member of MegaETH │ MegaETH Testnet", "value": "conftnft"},
+            {"name": "4. Mint Domain │ MegaETH Testnet", "value": "domain"},
+            {"name": "5. XL Meme Testnet - Buy/Sell Meme $mRBIT │ MegaETH Testnet", "value": "xlmeme"},
+            {"name": "6. Bebop Swap | MegaETH Testnet", "value": "bebopswap"},
+            {"name": "7. Rubic Exchange Swap | MegaETH Testnet", "value": "rubic"},
+            {"name": "8. GTE Swap Testnet | MegaETH Testnet", "value": "swapgte"},
+            {"name": "9. TEKO Staking Testnet | MegaETH Testnet", "value": "stakingteko"},
+            
+            #{"name": "12. Bronto Swap Testnet | MegaETH Testnet", "value": "brontoswap"},
+            #{"name": "13. Bronto Lock BRONTO -> veNFT [COMING SOON] | MegaETH Testnet", "value": "brontolock"},
+            #{"name": "14. Bronto Vote Testnet [COMING SOON] | MegaETH Testnet", "value": "brontovote"},
+            #{"name": "15. Bronto Liquidity Testnet [COMING SOON] | MegaETH Testnet", "value": "brontoliquidity"},
+            {"name": "10. WL HOPNetwork Testnet | MegaETH Testnet", "value": "hopwl"},
+
+            {"name": "11. Mint NFT Rarible FUN [ FUN Starts Here ] | MegaETH Testnet", "value": "rariblefun"},
+            {"name": "12. Mint NFT Nerzo [ MEGA ETH PASS ] | MegaETH Testnet", "value": "mintnerzo"},
+            {"name": "13. Mint NFT Aura [ BUNNY NFT ] | MegaETH Testnet", "value": "mintaura"},
+            {"name": "14. Mint NFT Morkie [ MORKIE NFT ] | MegaETH Testnet", "value": "mintmorkie"},
+            {"name": "15. Mint OmniHub NFT Studio | MegaETH Testnet", "value": "mintomnihub"},
+
+            {"name": "16. SuperBoard Quests | MegaETH Testnet", "value": "superboard"},
+            
+            {"name": "17. Deploy Smart Contract Mintair | MegaETH Testnet", "value": "mintair"},
+            {"name": "18. Deploy Smart Contract EasyNode | MegaETH Testnet", "value": "easynode"},
+            {"name": "19. Deploy Smart Contract Owlto | MegaETH Testnet", "value": "owlto"},
             {"name": "20. Send Random TX or File (address.txt) | MegaETH Testnet", "value": "sendtx"},
             {"name": "21. Deploy Token smart-contract | MegaETH Testnet", "value": "deploytoken"},
             {"name": "22. Send ERC20 Token Random or File (addressERC20.txt) | MegaETH Testnet", "value": "sendtoken"},
@@ -233,10 +283,12 @@ def get_available_scripts(language):
             {"name": "24. Exit", "value": "exit"},
 
 
-          #  {"name": "3. TEKO Finance - Mint 1 $tkETH | MegaETH Testnet", "value": "mint_tkETH"},
-          #  {"name": "4. TEKO Finance - Mint 2000 $tkUSDC | MegaETH Testnet", "value": "mint_tkUSDC"},
-          #  {"name": "5. TEKO Finance - Mint 0.02 $tkWBTC | MegaETH Testnet", "value": "mint_tkWBTC"},
-          #  {"name": "6. TEKO Finance - Mint 1000 $cUSD | MegaETH Testnet", "value": "mint_tkcUSD"},
+          #  {"name": "25. TEKO Finance - Mint 1 $tkETH | MegaETH Testnet", "value": "mint_tkETH"},
+          #  {"name": "26. TEKO Finance - Mint 2000 $tkUSDC | MegaETH Testnet", "value": "mint_tkUSDC"},
+          #  {"name": "27. TEKO Finance - Mint 0.02 $tkWBTC | MegaETH Testnet", "value": "mint_tkWBTC"},
+          #  {"name": "28. TEKO Finance - Mint 1000 $cUSD | MegaETH Testnet", "value": "mint_tkcUSD"},
+          #  {"name": "29. GTE Testnet - Faucet ETH [ FAUCET END ] | MegaETH Testnet", "value": "faucetgte"},
+          #  {"name": "30. REGISTER WAITLIST [ Euphoria | Valhalla | Noise ] | MegaETH Testnet", "value": "wl"},
         ]
     }
     return scripts[language]
