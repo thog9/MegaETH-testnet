@@ -5,3 +5,4 @@ py-solc-x
 eth-account
 aiohttp
 loguru   
+aiohttp_socks
